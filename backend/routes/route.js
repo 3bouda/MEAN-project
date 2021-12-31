@@ -34,14 +34,22 @@ router.delete('/task/:id',(req,res,next)=>{
         }
     });
 });
-//update tas
-//router.put('task/:id',(req,res,next)=>{
-  //  Task.updateOne({ _id: '61c1588f7be6c2df514bf5b7' },req.body);
-   ////Task.findById({_id:req.params.id},function(err,result){
-      // 
-    //);
-       
-//})
+//update task
+router.put('/task/:id',(req,res,next)=>{
+   var newTask= {
+    description: req.body.description,
+    list: req.body.list,
+    user: req.body.user
+};
+     Task.updateOne({_id:req.params.id},{$set:newTask},function(err, result){
+        if(err){
+            res.json(err);
+        }else{
+            res.json(result)
+        }
+    });
+
+});
 //----------------------------------------------------------------
 
 //get users

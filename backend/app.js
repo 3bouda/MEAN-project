@@ -29,7 +29,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //static files
-app.use(express.static(path.join(__dirname,'frontend')));
+//app.use(express.static(path.join(__dirname,'frontend')));
 
 //routes
 app.use('/api',route);
